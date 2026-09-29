@@ -46,4 +46,4 @@ bin/
 /build/
 /.gradle/
 /.idea/
-/src/main/resources/zoom_flles/**
+/src/main/resources/zoom_files/**
