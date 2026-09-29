@@ -1,0 +1,48 @@
+plugins {
+    id 'java'
+    id 'war'
+}
+
+group 'edu.umich.ropierce'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    junitVersion = '5.9.2'
+}
+
+java {
+    sourceCompatibility = '21'
+    targetCompatibility = '21'
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+dependencies {
+    implementation 'org.apache.logging.log4j:log4j-core:2.22.1'
+    implementation 'ch.qos.logback:logback-core:1.4.14'
+    implementation 'ch.qos.logback:logback-classic:1.4.14'
+
+    implementation 'org.slf4j:slf4j-api:2.0.10'
+    implementation 'org.apache.logging.log4j:log4j-to-slf4j:2.22.1'
+    implementation 'org.apache.logging.log4j:log4j-core:2.22.1'
+
+    compileOnly('jakarta.servlet:jakarta.servlet-api:5.0.0')
+
+    implementation 'org.apache.poi:poi-ooxml:5.2.5'
+    implementation 'org.apache.poi:poi:5.2.5'
+    implementation 'org.apache.commons:commons-lang3:3.14.0'
+
+
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+}
+
+test {
+    useJUnitPlatform()
+}
